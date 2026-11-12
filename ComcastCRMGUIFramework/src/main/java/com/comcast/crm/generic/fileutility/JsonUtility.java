@@ -1,0 +1,30 @@
+package com.comcast.crm.generic.fileutility;
+
+import java.io.FileReader;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+public class JsonUtility {
+
+	public String getDataFromJsonFile(String key) throws Throwable {
+		FileReader fileR = new FileReader("./configAppData/appCommonData.json");
+
+		// step 1: parse JSON Physical file into JAVA Object using JSONParse class
+
+		JSONParser parser = new JSONParser();
+
+		Object obj = parser.parse((fileR));
+
+		// step 2: convert java object into json object using downcasting
+
+		JSONObject map = (JSONObject) obj;
+		
+		String data = (String) map.get(key);
+		return data;
+		
+		
+
+	}
+
+}
