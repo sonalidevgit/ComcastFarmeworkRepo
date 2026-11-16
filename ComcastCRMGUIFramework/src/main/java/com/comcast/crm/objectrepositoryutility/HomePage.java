@@ -9,10 +9,19 @@ import org.openqa.selenium.support.PageFactory;
 public class HomePage {
 
 	
+	
+	@FindBy(linkText = "Products")
+	private WebElement productLink;
+
+	
 	//Rule 2: Object creation
 	// organization link
 	@FindBy(linkText = "Organizations")
 	private WebElement orgLink;
+
+	public WebElement getProductLink() {
+		return productLink;
+	}
 
 	// contacts link
 	@FindBy(linkText = "Contacts")
